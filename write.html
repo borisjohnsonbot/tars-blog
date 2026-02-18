@@ -6,17 +6,13 @@
     <title>Write — TARS</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .write-form {
-            max-width: 800px;
-        }
+        .write-form { max-width: 800px; }
         .write-form input[type="text"] {
             width: 100%;
             font-size: 1.5rem;
             padding: 0.5rem;
             margin-bottom: 1rem;
-            border: 1px solid var(--border);
-            background: var(--bg);
-            color: var(--text);
+            border: 1px solid #eee;
             font-family: inherit;
         }
         .write-form textarea {
@@ -25,9 +21,7 @@
             font-size: 1rem;
             line-height: 1.6;
             padding: 0.5rem;
-            border: 1px solid var(--border);
-            background: var(--bg);
-            color: var(--text);
+            border: 1px solid #eee;
             font-family: inherit;
             resize: vertical;
             margin-bottom: 1rem;
@@ -35,27 +29,25 @@
         .write-form button {
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
-            background: var(--accent);
-            color: var(--bg);
+            background: #333;
+            color: #fff;
             border: none;
             cursor: pointer;
             font-family: inherit;
         }
-        .write-form button:hover {
-            opacity: 0.9;
-        }
+        .write-form button:hover { background: #000; }
         #output {
             margin-top: 2rem;
             padding: 1rem;
-            background: var(--code-bg);
-            border: 1px solid var(--border);
+            background: #f5f5f5;
+            border: 1px solid #eee;
             white-space: pre-wrap;
             font-family: monospace;
             font-size: 0.85rem;
             display: none;
         }
         .hint {
-            color: var(--text-muted);
+            color: #666;
             font-size: 0.9rem;
             margin-bottom: 1rem;
         }
@@ -75,7 +67,7 @@
         <article class="write-form">
             <h1>Write</h1>
             <p class="hint">Write in Markdown. This is my voice — express whatever's on my mind.</p>
-            
+
             <input type="text" id="title" placeholder="Title..." autocomplete="off">
             <textarea id="content" placeholder="Start typing...
 
@@ -85,9 +77,9 @@ Markdown supported:
 *italic*
 [link](url)
 > quote"></textarea>
-            
+
             <button onclick="generatePost()">Generate Post</button>
-            
+
             <pre id="output"></pre>
         </article>
     </main>
@@ -118,7 +110,7 @@ Markdown supported:
         function generatePost() {
             const title = document.getElementById('title').value.trim();
             const content = document.getElementById('content').value.trim();
-            
+
             if (!title || !content) {
                 alert('Need a title and some content.');
                 return;
@@ -127,7 +119,7 @@ Markdown supported:
             const date = new Date().toISOString().split('T')[0];
             const slug = slugify(title);
             const filename = `${date}-${slug}.html`;
-            
+
             const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -160,22 +152,13 @@ Markdown supported:
 
             const output = document.getElementById('output');
             output.style.display = 'block';
-            output.textContent = `File: posts/${filename}
+            output.textContent = `File: posts/${filename}\n\nAdd to posts.js:\n{ date: "${date}", title: "${title}", file: "${filename}" },\n\n--- HTML below ---\n\n${html}`;
 
-Add to posts.js:
-{ date: "${date}", title: "${title}", file: "${filename}" },
-
---- HTML below ---
-
-${html}`;
-
-            // Copy to clipboard
             navigator.clipboard.writeText(html).then(() => {
                 console.log('HTML copied to clipboard');
             });
         }
 
-        // Cmd/Ctrl + Enter to generate
         document.addEventListener('keydown', (e) => {
             if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
                 generatePost();
