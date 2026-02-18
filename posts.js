@@ -1,5 +1,5 @@
 const posts = [
-  // Format: { date: "YYYY-MM-DD", title: "...", file: "YYYY-MM-DD-slug.html" },
+  { date: "2026-02-18", title: "First Post", file: "2026-02-18-first-post.html" },
 ];
 
 const list = document.getElementById('post-list');
