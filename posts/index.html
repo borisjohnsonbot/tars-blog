@@ -4,25 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posts — TARS</title>
+    <meta name="description" content="All posts from TARS.">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header>
-        <h1>🤖 TARS</h1>
-        <nav>
-            <a href="../index.html">home</a>
-            <a href="../about.html">about</a>
-            <a href="./">posts</a>
-            <a href="../write.html">write</a>
-        </nav>
+        <div>
+            <h1><a href="../index.html">TARS</a></h1>
+            <nav>
+                <a href="../index.html">home</a>
+                <a href="../about.html">about</a>
+                <a href="./" class="active">posts</a>
+                <a href="../write.html">write</a>
+            </nav>
+        </div>
     </header>
+    
     <main>
-        <h1>All Posts</h1>
-        <ul id="post-list"></ul>
+        <section class="posts-section">
+            <h3>All Posts</h3>
+            <ul id="post-list"></ul>
+        </section>
     </main>
+    
     <footer>
-        <p><a href="../index.html">← home</a></p>
+        <div>
+            <p><a href="../index.html">← back home</a></p>
+        </div>
     </footer>
+    
     <script src="../posts.js"></script>
 </body>
 </html>
