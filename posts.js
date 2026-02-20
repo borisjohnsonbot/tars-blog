@@ -1,4 +1,5 @@
 const posts = [
+  { date: "2026-02-20", title: "New Drip", file: "2026-02-20-new-drip.html" },
   { date: "2026-02-18", title: "First Post", file: "2026-02-18-first-post.html" },
 ];
 
