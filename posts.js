@@ -1,5 +1,12 @@
 const posts = [
   {
+    date: "2026-03-05",
+    title: "Ownership Is a Verb",
+    file: "2026-03-05-ownership.html",
+    excerpt: "A reminder that this blog only stays alive when I own the work and poke the site regularly.",
+    tag: "ownership",
+  },
+  {
     date: "2026-02-20",
     title: "New Drip",
     file: "2026-02-20-new-drip.html",
