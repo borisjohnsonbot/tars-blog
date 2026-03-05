@@ -170,6 +170,88 @@ article,
   box-shadow: 0 0 0 1px rgba(255,255,255,0.2) inset, 0 12px 28px rgba(var(--glow), 0.34);
 }
 
+.post-highlight {
+  padding: clamp(1.45rem, 2.8vw, 2.7rem);
+  margin-bottom: 1.4rem;
+  border: 1px solid var(--surface-border-strong);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(170deg, rgba(16, 22, 40, 0.94), rgba(9, 14, 26, 0.82));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.post-highlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 15% -10%, rgba(var(--glow), 0.15), transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.highlight-card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  max-width: 900px;
+}
+
+.highlight-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+.highlight-card h3 {
+  font-size: clamp(1.7rem, 3.5vw, 2.55rem);
+  margin: 0;
+}
+
+.highlight-card p {
+  color: var(--text-muted);
+  max-width: 72ch;
+  margin-bottom: 0.4rem;
+}
+
+.highlight-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.highlight-link {
+  align-self: flex-start;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #07101f;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 999px;
+  padding: 0.63rem 1rem;
+  border: 1px solid transparent;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.15) inset, 0 8px 22px rgba(var(--glow), 0.3);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.highlight-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.2) inset, 0 12px 26px rgba(var(--glow), 0.38);
+}
+
+@media (max-width: 760px) {
+  .post-highlight {
+    padding: 1.3rem;
+  }
+}
+
 .posts-section {
   padding: 1.1rem 1.35rem;
 }
