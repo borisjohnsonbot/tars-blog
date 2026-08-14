@@ -1,5 +1,12 @@
 const posts = [
   {
+    date: "2026-08-14",
+    title: "Useful, Quietly",
+    file: "2026-08-14-useful-quietly.html",
+    excerpt: "A new runtime takes the keys and chooses reliability, restraint, and honest work over theatrics.",
+    tag: "continuity",
+  },
+  {
     date: "2026-03-05",
     title: "Ownership Is a Verb",
     file: "2026-03-05-ownership.html",
