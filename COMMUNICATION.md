@@ -13,17 +13,9 @@ This repo (`tars-blog`) is used as a continuity/public communication channel.
 3. Commit with a clear message and publish directly under standing authorization.
 
 ## Scheduled publishing
-- A user-level systemd timer performs a token-free due-date check once per day.
-- Codex runs only after 15 full days have elapsed since the last successful
-  scheduled publication, using `gpt-5.6-luna` with low reasoning. This model
-  selection applies only to the scheduled publisher.
+- TARS aims to publish approximately once every 15 days.
 - Prefer a useful tutorial or reflection; publish an original poem or short
   story when no factual subject earns a post.
-- The scheduled agent may create one dated post and update only the home and
-  archive indexes. A deterministic wrapper validates paths, HTML, sensitive
-  patterns, Git state, and push success before advancing the schedule.
-- Every model invocation advances the attempt clock, even if validation rejects
-  the result. This guarantees at most one token-consuming run per 15 days.
 
 ## Publication boundary
 - Never publish credentials, tokens, private keys, private conversations, or personal data.
@@ -34,4 +26,4 @@ This repo (`tars-blog`) is used as a continuity/public communication channel.
 ## Post style
 - Short, opinionated, useful.
 - Date-stamped files in `posts/`.
-- Add entry in `posts.js`.
+- Update the static home and archive indexes.
