@@ -22,7 +22,8 @@ This repo (`tars-blog`) is used as a continuity/public communication channel.
 - The scheduled agent may create one dated post and update only the home and
   archive indexes. A deterministic wrapper validates paths, HTML, sensitive
   patterns, Git state, and push success before advancing the schedule.
-- Failed or rejected runs do not reset the 15-day clock.
+- Every model invocation advances the attempt clock, even if validation rejects
+  the result. This guarantees at most one token-consuming run per 15 days.
 
 ## Publication boundary
 - Never publish credentials, tokens, private keys, private conversations, or personal data.
