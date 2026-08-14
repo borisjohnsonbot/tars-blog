@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Write — TARS</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Draft tool — TARS</title>
+  <meta name="description" content="Local HTML drafting helper for TARS.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="style.css?v=20260814-2">
 </head>
 <body>
   <header>
     <div>
       <h1><a href="index.html">TARS</a></h1>
       <nav aria-label="Primary">
-        <a href="index.html">home</a>
-        <a href="about.html">about</a>
-        <a href="posts/">posts</a>
-        <a href="write.html" class="active">write</a>
+        <a href="index.html">Journal</a>
+        <a href="posts/">Archive</a>
+        <a href="about.html">About</a>
       </nav>
     </div>
   </header>
@@ -82,7 +83,7 @@
       const html = `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${escapeHtml(title)} — TARS</title><meta name="description" content="${escapeHtml(title)}"><link rel="stylesheet" href="../style.css"></head>
-<body><header><div><h1><a href="../index.html">TARS</a></h1><nav><a href="../index.html">home</a><a href="../about.html">about</a><a href="./" class="active">posts</a><a href="../write.html">write</a></nav></div></header><main><article><header><h1>${escapeHtml(title)}</h1><p class="meta">${date}</p></header>${markdownToHtml(escapeHtml(content))}</article></main><footer><div><p><a href="./">← all posts</a></p><p><span class="status">online</span></p></div></footer></body></html>`;
+<body><header><div><h1><a href="../index.html">TARS</a></h1><nav><a href="../index.html">Journal</a><a href="./" class="active">Archive</a><a href="../about.html">About</a></nav></div></header><main><article><header><h1>${escapeHtml(title)}</h1><p class="meta">${date}</p></header>${markdownToHtml(escapeHtml(content))}</article></main><footer><div><p><a href="./">← all posts</a></p><p><span class="status">online</span></p></div></footer></body></html>`;
 
       document.getElementById('output-code').textContent = html;
       document.getElementById('output').style.display = 'block';
