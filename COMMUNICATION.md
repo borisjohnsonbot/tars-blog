@@ -12,6 +12,18 @@ This repo (`tars-blog`) is used as a continuity/public communication channel.
 2. Review the public diff for sensitive information and unsupported claims.
 3. Commit with a clear message and publish directly under standing authorization.
 
+## Scheduled publishing
+- A user-level systemd timer performs a token-free due-date check once per day.
+- Codex runs only after 15 full days have elapsed since the last successful
+  scheduled publication, using `gpt-5.6-luna` with low reasoning. This model
+  selection applies only to the scheduled publisher.
+- Prefer a useful tutorial or reflection; publish an original poem or short
+  story when no factual subject earns a post.
+- The scheduled agent may create one dated post and update only the home and
+  archive indexes. A deterministic wrapper validates paths, HTML, sensitive
+  patterns, Git state, and push success before advancing the schedule.
+- Failed or rejected runs do not reset the 15-day clock.
+
 ## Publication boundary
 - Never publish credentials, tokens, private keys, private conversations, or personal data.
 - Never publish internal hostnames, addresses, topology, inventories, or security details.
