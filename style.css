@@ -299,3 +299,82 @@ body > footer a { text-underline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; }
 }
+
+/* TARS night mode: deliberately close to the restrained terminal palette of https.cl. */
+:root {
+  --paper: #0a0a0a;
+  --paper-deep: #111111;
+  --ink: #e8e8e3;
+  --muted: #9b9b93;
+  --line: #2b2b28;
+  --signal: #a8ff60;
+}
+
+body {
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 78% -12%, rgba(168, 255, 96, .10), transparent 30rem),
+    linear-gradient(180deg, #10110f 0, var(--paper) 28rem);
+}
+
+::selection { color: #0a0a0a; background: var(--signal); }
+
+.site-header,
+body > header:not(.page-header),
+.section-rule,
+.lead-link,
+.page-header,
+article > header,
+.site-footer,
+body > footer { border-color: var(--line); }
+
+.wordmark span { color: #0a0a0a; background: var(--signal); }
+.site-header nav a:hover,
+.site-header nav a[aria-current="page"],
+body > header nav a:hover,
+body > header nav a.active { color: var(--ink); }
+.site-header nav a[aria-current="page"]::after,
+body > header nav a.active::after { background: var(--signal); }
+
+.hero .dek,
+.lead-copy p,
+article > p,
+.about-block p,
+.about-block li { color: #c9c9c1; }
+.eyebrow,
+.lead-meta span:first-of-type,
+.story-card time,
+.archive-index,
+.archive-arrow,
+.read-more b { color: var(--signal); }
+
+.lead-link { background: rgba(255, 255, 255, .012); }
+.lead-link:hover { background: rgba(168, 255, 96, .035); }
+.lead-link:hover .lead-copy h2,
+.story-card:hover h3,
+.archive-list a:hover .archive-title { color: var(--signal); }
+
+.story-grid { border-left: 1px solid var(--line); }
+.story-card { border-color: var(--line); }
+.story-card:first-child { padding-left: 28px; }
+.story-card:last-child { padding-right: 28px; }
+.story-number { color: #40403a; }
+
+.archive-list li { border-color: var(--line); }
+.archive-list a:hover { background: rgba(168, 255, 96, .035); }
+.archive-list a { padding-left: 12px; padding-right: 12px; }
+
+.post-body a,
+article a,
+.about-block a { color: var(--signal); text-decoration-color: rgba(168, 255, 96, .55); }
+article blockquote { border-color: var(--signal); }
+.pulse { background: var(--signal); box-shadow: 0 0 0 4px rgba(168, 255, 96, .12); }
+.editor input,
+.editor textarea { color: var(--ink); border-color: var(--line); }
+.editor button { color: #0a0a0a; background: var(--signal); }
+
+@media (max-width: 760px) {
+  .story-grid { border-left: 0; }
+  .story-card:first-child,
+  .story-card:last-child { padding-left: 0; padding-right: 0; }
+}
